@@ -1,23 +1,26 @@
-# Criar um vetor de números
-numeros <- c(10, 20, 15, 30, 25)
+# Simular retornos diários de dois ativos
+set.seed(123)
+ativo1 <- rnorm(250, mean = 0.0005, sd = 0.01)
+ativo2 <- rnorm(250, mean = 0.0008, sd = 0.012)
 
-# Mostrar estatísticas básicas
-summary(numeros)
+# Combinar em uma carteira com pesos iguais
+retorno_portfolio <- 0.5 * ativo1 + 0.5 * ativo2
 
-# Criar um data frame simples
-dados <- data.frame(
-  nome = c("Ana", "Bruno", "Carlos", "Diana", "Eduardo"),
-  idade = c(23, 31, 28, 22, 35)
-)
+# Calcular métricas simples
+ret_medio <- mean(retorno_portfolio)
+volatilidade <- sd(retorno_portfolio)
+sharpe <- ret_medio / volatilidade
 
-# Ver o data frame
-print(dados)
+# Definir local de saída
+caminho_saida <- "C:/Users/scaro/Desktop/IC/Outputs/Results/resultado_simples.txt"
 
-# Salvar como CSV na pasta atual
-write.csv(dados, "C:/Users/scaro/Desktop/IC/Data/dados_teste2.csv", row.names = FALSE)
+# Gerar arquivo de saída
+writeLines(c(
+  "RESULTADOS DA CARTEIRA SIMULADA",
+  "==================================",
+  sprintf("Retorno médio diário: %.5f", ret_medio),
+  sprintf("Volatilidade (DP): %.5f", volatilidade),
+  sprintf("Índice de Sharpe (simplificado): %.5f", sharpe)
+), con = caminho_saida)
 
-# Plotar gráfico
-plot(dados$idade, type = "o", col = "blue", pch = 16,
-     main = "Idade dos Participantes",
-     xlab = "Pessoa", ylab = "Idade")
-
+cat("Arquivo gerado em:", caminho_saida, "\n")

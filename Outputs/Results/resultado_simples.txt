@@ -1,0 +1,5 @@
+RESULTADOS DA CARTEIRA SIMULADA
+==================================
+Retorno médio diário: 0.00107
+Volatilidade (DP): 0.00790
+Índice de Sharpe (simplificado): 0.13584
