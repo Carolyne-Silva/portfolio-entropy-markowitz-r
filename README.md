@@ -21,9 +21,9 @@ Este repositório reúne dados, códigos, relatórios e documentação associado
 📦 Projeto
 ├── Data/         # Séries temporais (formato .csv)
 ├── Code/         # Scripts R com EP e Markowitz
-├── Outputs/      # Resultados e gráficos gerados
-├── Figures/      # Ilustrações e diagramas
-├── Docs/         # Relatórios e documentação
+├── Outputs/      # Resultados
+├── Figures/      # Ilustrações e grafícos gerados
+├── Text/         # Relatórios, documentação e referências
 ├── Planning/     # Cronograma e canvas científico
 └── README.md     # Este arquivo
 ```
@@ -42,20 +42,6 @@ Este repositório reúne dados, códigos, relatórios e documentação associado
 - **H₀:** A Entropia por Permutação não contribui significativamente na análise de risco.
 - **H₁:** A EP enriquece a análise fornecendo complexidade adicional às métricas tradicionais.
 
----
-
-## 📅 Cronograma
-| Mês           | Atividades                                     |
-|---------------|------------------------------------------------|
-| Ago - Set     | Revisão bibliográfica                          |
-| Out - Nov     | Implementação da Teoria de Markowitz           |
-| Dez - Jan     | Implementação da Entropia por Permutação       |
-| Fev - Abr     | Integração e análise dos resultados            |
-| Mai - Jun     | Redação de artigos e relatório final           |
-| Jul           | Finalização do projeto                         |
-
----
-
 ## 🔗 Links Importantes
 - [Entropia por Permutação - Artigo de Bandt & Pompe](https://link.aps.org/doi/10.1103/PhysRevLett.88.174102)
 - [Pacote quantmod](https://www.quantmod.com/)
@@ -64,9 +50,9 @@ Este repositório reúne dados, códigos, relatórios e documentação associado
 ---
 
 ## 👨‍💻 Equipe
-- **Coordenação:** Seu Nome
-- **Instituição:** Universidade / Grupo de Pesquisa
-- **Contato:** email@exemplo.com
+- **Coordenação:** Carolyne Gomes Silva; Anderson Adaime de Borba
+- **Instituição:** UPM
+- **Contato:** sacrolynegomes@gmail.com
 
 ---
 
