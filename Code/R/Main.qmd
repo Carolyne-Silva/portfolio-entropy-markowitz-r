@@ -1,0 +1,68 @@
+```{r}
+install.packages("quantmod")                                                        
+```
+
+```{r}
+library(quantmod)
+```
+
+```{r}
+#Montagem da cateira
+tickers <- c("AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA")
+quantidades <- c(20, 15, 10, 8, 12, 6)
+```
+
+```{r}
+
+#Preço de compra
+data_compra <- as.Date("2024-12-02")
+getSymbols(tickers, src = "yahoo", from = data_compra - 5, auto.assign = TRUE)
+
+# Preço na data da compra
+precos_compra <- sapply(tickers, function(tk) {
+  preco_dia <- Cl(get(tk))[as.character(data_compra)]
+  if (is.na(preco_dia)) {
+    preco_dia <- Cl(get(tk))[which(!is.na(Cl(get(tk))))[1]]  # Fallback para o primeiro preço válido
+  }
+  as.numeric(preco_dia)
+})
+
+
+```
+
+```{r}
+# Preço atual (último fechamento)
+precos_atuais <- sapply(tickers, function(tk) {
+  as.numeric(tail(Cl(get(tk)), 1))
+})
+```
+
+```{r}
+# Calcular valores totais
+valor_compra <- precos_compra * quantidades
+valor_atual <- precos_atuais * quantidades
+lucro_abs <- valor_atual - valor_compra
+lucro_perc <- round((lucro_abs / valor_compra) * 100, 2)
+participacao  <- round((valor_atual / sum(valor_atual)) * 100, 2)
+```
+
+% de retorno = (Preço atual - Preço de compra + Dividendos) / Preço de compra\] \* 100. 
+
+```{r}
+# Tabela final
+carteira <- data.frame(
+  Empresa = c("Apple", "Microsoft", "Alphabet", "Amazon", "Meta", "Nvidia"),
+  Ticker = tickers,
+  Quantidade = quantidades,
+  Preço_Compra = round(precos_compra, 2),
+  Preço_Atual = round(precos_atuais, 2),
+  Valor_Compra = round(valor_compra, 2),
+  Valor_Atual = round(valor_atual, 2),
+  Lucro = round(lucro_abs, 2),
+  Lucro_Percentual = paste0(lucro_perc, "%"),
+  Participação = paste0(participacao, "%")
+)
+
+# Exibir a tabela
+print(carteira, row.names = FALSE)
+```
