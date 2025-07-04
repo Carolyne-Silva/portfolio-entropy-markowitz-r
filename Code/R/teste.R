@@ -12,7 +12,7 @@ volatilidade <- sd(retorno_portfolio)
 sharpe <- ret_medio / volatilidade
 
 # Definir local de saída
-caminho_saida <- "C:/Users/scaro/Desktop/IC/Outputs/Results/resultado_simples.txt"
+caminho_saida <- "C:/Users/scaro/Desktop/IC/Outputs/Results/resultado_simples2.txt"
 
 # Gerar arquivo de saída
 writeLines(c(
